@@ -1,0 +1,94 @@
+// @Author Lithisha M
+
+package practice;
+import java.util.*;
+
+
+class Bus{
+	 private int busId;
+	    private String boarding;
+	    private String destination;
+	    private int price;
+	    private int noOfSeats;
+	     //constructor
+	    public Bus() {
+	    	
+	    }
+	    public Bus(int busId, String boarding, String destination, int price, int noOfSeats ) {
+	    	this.busId= busId;
+	    	this.boarding=boarding;
+	    	this.destination= destination;
+	    	this.price=price;
+	    	this.noOfSeats= noOfSeats;
+	    	
+	    }
+	     //getters & setters
+	}
+
+
+	class Booking{
+	    public void busDetails(){
+	//create a collection class and store bus details 
+	    	List<Bus> list=new ArrayList<Bus>();  
+	    	
+	    	}
+	   
+	public void bookSeats(int busId, String boarding,String destination, int price, int noOfSeats){
+	     //calculate discount
+		double dis= (noOfSeats*price)*0.1;
+		double discount=0;
+		if(busId== 111 ||busId==222 ||busId==333) {
+		if (noOfSeats>5) {
+			
+			System.out.println("Discount is: "+dis);
+			discount= (noOfSeats*price)-dis;
+			System.out.println("Total to pay: "+discount);
+        }
+		else if(noOfSeats==0) {
+			System.out.println("Choose seats for booking!!!");
+		}
+		else {
+			System.out.println("Discount is: 0");
+			System.out.println("Total to pay: "+(price*noOfSeats));
+		}
+		}
+		
+		else {
+			
+			System.out.println("Booking is not success, due to incorrect bus id");
+		}
+		
+	    }
+	}
+
+	public class BusBooking {
+	    public static void main(String[] args) {
+	    	Booking a= new Booking();
+	         Scanner sc=new Scanner(System.in);
+	        //create object and call the methods
+	         System.out.println("BusId Boarding Destination Price noOfSeats");
+	         System.out.println("------------------------------------------");
+	         System.out.println("111 Chennai Bangalore 2000 22");
+	         System.out.println("222 Mumbai Pune 1500 28");
+	         System.out.println("333 Chennai Hyderabad 1000 10");
+	         
+	         System.out.println("Enter bus id: ");
+	         int id= sc.nextInt();
+	         
+	         System.out.println("Enter Boarding point: ");
+	         String boarding= sc.next();
+	         
+	         System.out.println("Enter Destination point: ");
+	         String dest=sc.next();
+	         
+	         System.out.println("Enter cost of seat: ");
+	         int price= sc.nextInt();
+	         
+	         System.out.println("Enter number of seat: ");
+	         int noOfSeats= sc.nextInt();
+	         
+	         
+	         a.bookSeats(id, boarding, dest, price, noOfSeats);
+	         
+	    }
+	}
